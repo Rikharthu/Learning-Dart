@@ -1,26 +1,16 @@
-import 'package:Learning_Dart/Learning_Dart.dart' as Learning_Dart;
+import 'package:Learning_Dart/Learning_Dart.dart' as LD; // LD is handle
+import 'dart:math' as math;
+
+// If you don't specify 'as XYZ', then library methods will be reference without that 'XYZ.' part
+// Otherwise name should be used
 
 /**
  * main is an entry point
  */
 main(List<String> arguments) {
-  print('Hello world: ${Learning_Dart.calculate()}!');
-  var doubleQuotesAllowed = true;
-  // bool doubleQuotesAllowed = true;
-  print("Double quotes are also allowed? $doubleQuotesAllowed");
+  print('Hello world: ${LD.calculate()}!');
+  print("Name is ${LD.getName()}");
+  // LD._somePrivateFunction() ERROR
 
-  var dynamic;
-  print(dynamic);
-  // -> null
-  dynamic = 13;
-  print(dynamic);
-  // -> 13
-  dynamic = "Hello";
-  print(dynamic);
-  // -> "Hello"
-  if(dynamic is String){
-    print("\"$dynamic\" is String");
-  }else if(dynamic is int){
-    print("\"$dynamic\" is int");
-  }
+  print("Max is ${math.max(133, 771)}");
 }

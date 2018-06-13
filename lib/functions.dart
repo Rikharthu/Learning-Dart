@@ -47,8 +47,7 @@ void main(List<String> arguments) {
   // it using fat arrow notation.
   // Paste the following line into DartPad and click run to verify
   // that it is functionally equivalent.
-  list.forEach(
-  (item) => print('${list.indexOf(item)}: $item'));
+  list.forEach((item) => print('${list.indexOf(item)}: $item'));
 
   // Lexical scope
   var insideMain = true;
@@ -82,6 +81,21 @@ void main(List<String> arguments) {
 
   assert(add2(3) == 5);
   assert(add4(3) == 7);
+
+  var outsideVar = "Bond";
+  insideFunction() {
+    print("From inside: $outsideVar");
+    outsideVar = "James";
+  }
+  print("Outside: $outsideVar");
+  // -> Bond
+  insideFunction();
+  // -> Bound
+  print("Outside: $outsideVar");
+  // -> James
+  outsideVar="Alex";
+  insideFunction();
+  // -> Alex
 }
 
 /// Returns a function that adds [addBy] to the
@@ -97,6 +111,9 @@ void sayHello(name) {
 // The => expr syntax is a shorthand for { return expr; }.
 // The => notation is sometimes referred to as fat arrow syntax.
 bool isOld(int age) => age >= 65;
+
+// => expr =={return expression; }
+String getName() => "James Bond";
 
 // Optional parameters
 // Can be either positional OR named
